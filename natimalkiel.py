@@ -1,32 +1,60 @@
-def nati_mal(start, end):
-    for number in range(starting_num, ending_num):
-        if number % 3 == 0 and number % 5 == 0:
+# check digits
+#
+def check_digits():
+    number = str(input("please give me the first number: "))
+
+    if number.isdigit():
+        print("ok")
+    else:
+        try_one = input(f"please give me a number, {number}! is not a number: ")
+        if try_one.isdigit():
+            print("ok")
+        else:
+            print("program end")
+
+    number2 = str(input("please give me the second number: "))
+
+    if number2.isdigit():
+        print("ok")
+    else:
+        try_one = input(f"please give me a number, {number2}! is not a number: ")
+        if try_one.isdigit():
+            print("ok")
+        else:
+            print("program end")
+#
+#
+# check_digits()
+
+# range to check
+
+
+def range_to_check(f_num, s_num):
+
+    for x in range(f_num, s_num):
+        print(x)
+
+# numbers to check
+
+
+def nati_mal(num3, num4):
+    for x in range(1, 100):
+        if x % num3 == 0 and x % num4 == 0:
             print('nati malkiel')
-        elif number % 3 == 0:
+        elif x % num3 == 0:
             print('nati')
-        elif number % 5 == 0:
+        elif x % num4 == 0:
             print('malkiel')
         else:
-            print(number)
-
-
-starting_num = int(input("give me a starting number: "))
-ending_num = int(input("give me a ending number: "))
-
-nati_mal(starting_num, ending_num)
+            print(x)
 
 
 
-# def nati_mal(s_num, e_num):
-#     for number in range(s_num, e_num):
-#         if number % 3 == 0 and number % 5 == 0:
-#             print('nati malkiel')
-#         elif number % 3 == 0:
-#             print('nati')
-#         elif number % 5 == 0:
-#             print('malkiel')
-#         else:
-#             print(number)
-#
-#
-# nati_mal(1, 31)
+
+
+
+
+
+
+
+
