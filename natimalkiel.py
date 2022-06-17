@@ -1,34 +1,21 @@
-import sys
-
-
-def first_number_to_division():
-    first_number = input("give me the first number to check the division: ")
+def first_number_to_check():
+    first_number = input("give me the first number to check: ")
     if first_number.isdigit():
         print("ok")
     else:
-        print("error")
-        first_number = str(input("give me the first number to check the division: "))
-        if first_number.isdigit():
-            print("ok")
-        else:
-            sys.exit()
+        return first_number_to_check()
 
-    return str(first_number)
+    return first_number
 
 
-def second_number_to_division():
-    second_number = input("give me the second number to check the division: ")
+def second_number_to_check():
+    second_number = input("give me the first number to check: ")
     if second_number.isdigit():
         print("ok")
     else:
-        print("error")
-        second_number = str(input("give me the second number to check the division: "))
-        if second_number.isdigit():
-            print("ok")
-        else:
-            sys.exit()
+        return second_number_to_check()
 
-    return str(second_number)
+    return second_number
 
 
 def the_answer(first_number, second_number):
@@ -40,7 +27,10 @@ def the_answer(first_number, second_number):
         elif number % int(second_number) == 0:
             print('malkiel')
         else:
-            print(number)
+            print(int(number))
 
 
-the_answer(first_number_to_division(), second_number_to_division())
+first = first_number_to_check()
+second = second_number_to_check()
+
+the_answer(first, second)
