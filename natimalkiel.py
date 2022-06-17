@@ -1,21 +1,10 @@
-def first_number_to_check():
-    first_number = input("give me the first number to check: ")
-    if first_number.isdigit():
+def first_number_to_check(number):
+    if number.isdigit():
         print("ok")
     else:
-        return first_number_to_check()
+        return first_number_to_check(number)
 
-    return first_number
-
-
-def second_number_to_check():
-    second_number = input("give me the first number to check: ")
-    if second_number.isdigit():
-        print("ok")
-    else:
-        return second_number_to_check()
-
-    return second_number
+    return number
 
 
 def the_answer(first_number, second_number):
@@ -30,7 +19,6 @@ def the_answer(first_number, second_number):
             print(int(number))
 
 
-first = first_number_to_check()
-second = second_number_to_check()
-
-the_answer(first, second)
+one = first_number_to_check(str(input("give me number: ")))
+two = first_number_to_check(str(input("give me number: ")))
+the_answer(one, two)
