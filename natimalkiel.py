@@ -1,35 +1,46 @@
 import sys
 
 
-def nati_malkiel(range_first_number, range_second_number):
-    number_1_to_check = str(input("give me the first number to check the division: "))
-    if number_1_to_check.isdigit():
+def first_number_to_division():
+    first_number = input("give me the first number to check the division: ")
+    if first_number.isdigit():
         print("ok")
     else:
         print("error")
-        (input("give me the first number to check the division: "))
-        sys.exit()
-    number_2_to_check = str(input("give me the second number to check the division: "))
-    if number_2_to_check.isdigit():
-        print("ok")
-    else:
-        print("error")
-        str(input("give me the second number to check the division: "))
-        sys.exit()
+        first_number = str(input("give me the first number to check the division: "))
+        if first_number.isdigit():
+            print("ok")
+        else:
+            sys.exit()
 
-    for number in range(range_first_number, range_second_number):
-        if number % int(number_1_to_check) == 0 and number % int(number_2_to_check) == 0:
+    return str(first_number)
+
+
+def second_number_to_division():
+    second_number = input("give me the second number to check the division: ")
+    if second_number.isdigit():
+        print("ok")
+    else:
+        print("error")
+        second_number = str(input("give me the second number to check the division: "))
+        if second_number.isdigit():
+            print("ok")
+        else:
+            sys.exit()
+
+    return str(second_number)
+
+
+def the_answer(first_number, second_number):
+    for number in range(1, 100):
+        if number % int(first_number) == 0 and number % int(second_number) == 0:
             print('nati malkiel')
-        elif number % int(number_1_to_check) == 0:
+        elif number % int(first_number) == 0:
             print('nati')
-        elif number % int(number_2_to_check) == 0:
+        elif number % int(second_number) == 0:
             print('malkiel')
         else:
             print(number)
 
 
-(nati_malkiel(1, 101)) # למה אני צריך לשים פה הוא לא עושה כלום
-
-
-
-
+the_answer(first_number_to_division(), second_number_to_division())
