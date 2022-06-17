@@ -1,23 +1,33 @@
-def first_number_to_check(number):
+# checking the numbers to insert the function "the answer"
+def numbers_to_check(number):
     if number.isdigit():
         print("ok")
     else:
-        return first_number_to_check(number)
+        return numbers_to_check(input("give me number to check: "))
 
     return number
 
 
+num1 = numbers_to_check(input("give me number1 to check: "))
+num2 = numbers_to_check(input("give me number2 to check: "))
+
+
+# checking the numbers to insert the function "determine_range"
 def determine_range(range_number):
     if range_number.isdigit():
         print("ok")
     else:
-        return determine_range(range_number)
+        return determine_range(input("give me range number: "))
 
     return range_number
 
 
-def the_answer(first_number, second_number, starting_range, end_range):
-    for number in range(int(starting_range), int(end_range)):
+range1 = numbers_to_check(input("give me range1 to check: "))
+range2 = numbers_to_check(input("give me range2 to check: "))
+
+
+def the_answer(first_number, second_number, range1, range2):
+    for number in range(int(range1), int(range2)):
         if number % int(first_number) == 0 and number % int(second_number) == 0:
             print('nati malkiel')
         elif number % int(first_number) == 0:
@@ -28,9 +38,4 @@ def the_answer(first_number, second_number, starting_range, end_range):
             print(int(number))
 
 
-number_one = first_number_to_check(str(input("give me number: ")))
-number_two = first_number_to_check(str(input("give me number: ")))
-range_one = determine_range(input("give me starting range: "))
-range_two = determine_range(input("give me ending range: "))
-
-the_answer(number_one, number_two, range_one, range_two)
+the_answer(num1, num2, range1, range2)
