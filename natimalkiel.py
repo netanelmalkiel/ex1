@@ -1,17 +1,14 @@
 import sys
 
-def numbers_to_check(number):
-    if number.isdigit():
-        print("ok")
-    else:
-        print("error")
-        return numbers_to_check(input("give me number to check: "))
+def numbers_to_check(fun):
+    number = input(f"give me the {fun} number: ")
+    if not number.isdigit():
+         number = numbers_to_check(fun)
 
     return number
 
-
-num1 = numbers_to_check(input("give me number to check: "))
-num2 = numbers_to_check(input("give me number to check: "))
+num1 = numbers_to_check("first")
+num2 = numbers_to_check("second")
 
 
 def the_answer(first_number, second_number):
