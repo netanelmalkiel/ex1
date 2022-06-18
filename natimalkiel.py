@@ -1,10 +1,12 @@
 import sys
 
+
 # checking the numbers to insert the function "the answer"
 def numbers_to_check(number):
     if number.isdigit():
         print("ok")
     else:
+        print("error")
         return numbers_to_check(input("give me number to check: "))
 
     return number
@@ -19,13 +21,14 @@ def determine_range(range_number):
     if range_number.isdigit():
         print("ok")
     else:
+        print("error")
         return determine_range(input("give me range number: "))
 
     return range_number
 
 
-range1 = numbers_to_check(input("give me range1 to check: "))
-range2 = numbers_to_check(input("give me range2 to check: "))
+range1 = numbers_to_check(input("give me range to check: "))
+range2 = numbers_to_check(input("give me range to check: "))
 
 
 def the_answer(first_number, second_number, range1, range2):
@@ -41,15 +44,11 @@ def the_answer(first_number, second_number, range1, range2):
             print(int(number))
 
 
-def writing():
-    sys.stdout = open('output.txt', 'wt')
-    print(the_answer(num1, num2, range1, range2))
-
+def writing(file_name):
+    sys.stdout = open(file_name, 'w+')
+    the_answer(num1, num2, range1, range2)
+filename = input("name for the file: ")
 
 the_answer(num1, num2, range1, range2)
-writing()
-
-
-
-
+writing(filename)
 
