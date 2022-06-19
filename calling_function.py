@@ -1,0 +1,3 @@
+import natimalkiel
+
+natimalkiel.main()
