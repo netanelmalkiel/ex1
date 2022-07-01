@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 set -u
 
 print_usage(){
@@ -21,9 +22,13 @@ while getopts :c:t:u: flag; do
 		c) counts=(-n $OPTARG);;
 		t) timeout=(-d "$OPTARG");;
 		u) user_name=(-u "$OPTARG");;
+	
 	esac
 done
 
 
-top "${counts[@]}" "${timeout[@]}" "${user_name[@]}"
-
+#top "${counts[@]}" "${timeout[@]}" "${user_name[@]}"
+top "${counts[@]}" "${timeout[@]}" "${user_name[@]}" c | grep chrome | awk '{print $3, $13}'
+# how to put the "chrome" in the command line.
+# i need to count the processes.
+# it echo my not in 1 second its gust show me all the result
