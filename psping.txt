@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -u
+
+print_usage(){
+	echo "usage: psping [-c repetitions] [-t timeout] [-u  username] exe-name"
+}
+
+if [[ $# -eq 0 ]] ; then
+   print_usage
+   exit 1
+fi
+
+counts=()
+timeout=(-d 1)
+user_name=()
+
+
+while getopts :c:t:u: flag; do
+	case $flag in
+		c) counts=(-n $OPTARG);;
+		t) timeout=(-d "$OPTARG");;
+		u) user_name=(-u "$OPTARG");;
+	esac
+done
+
+
+top "${counts[@]}" "${timeout[@]}" "${user_name[@]}"
+
