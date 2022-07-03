@@ -39,29 +39,25 @@ fi
 counter=0
 echo "Pinging ‘$command’ for $user"
 
-while [ -z "$user_name" ]
+while :
 do
+if [ -z "$user_name" ]
+then
   pscount=$(ps aux |awk '{print $1, $11}' | grep -w "$command" | wc -l)
   echo "$command: $pscount instance(s)..." 
+    ((counter=counter+1))
+  if [ "$counter" =  "$max_counts" ]
+  then
+    exit 0
+  fi
+ else
+    pscount=$(ps -C "$command" -o user= | grep -w "$user_name" | wc -l)
+    echo "$command: $pscount instance(s)..." 
   ((counter=counter+1))
   if [ "$counter" =  "$max_counts" ]
   then
     exit 0
   fi
-
+fi
   sleep $timeout
 done
-
-while [ ! -z "$user_name" ]
-do
-  pscount=$(ps -C "$command" -o user= | grep -w "$user_name" | wc -l)
-  echo "$command: $pscount instance(s)..." 
-  ((counter=counter+1))
-  if [ "$counter" =  "$max_counts" ]
-  then
-    exit 0
-  fi
-
-  sleep $timeout
-done
-
