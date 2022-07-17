@@ -15,11 +15,11 @@ def main():
 def the_answer(args):
     for number in range(1, 501):
         if number % int(args.first) == 0 and number % int(args.second) == 0:
-            print('nati malkiel')
+            print('fizz buzz')
         elif number % int(args.first) == 0:
-            print('nati')
+            print('fizz')
         elif number % int(args.second) == 0:
-            print('malkiel')
+            print('buzz')
         else:
             print(int(number))
 

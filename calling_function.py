@@ -1,3 +1,3 @@
-import natimalkiel
+import fizzbuzz
 
-natimalkiel.main()
+fizzbuzz.main()

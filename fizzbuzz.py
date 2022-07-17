@@ -16,11 +16,11 @@ num2 = numbers_to_check("second")
 def the_answer():
     for number in range(1, 101):
         if number % int(first_number) == 0 and number % int(second_number) == 0:
-            print('nati malkiel')
+            print('fizz buzz')
         elif number % int(first_number) == 0:
-            print('nati')
+            print('fizz')
         elif number % int(second_number) == 0:
-            print('malkiel')
+            print('buzz')
         else:
             print(int(number))
 
